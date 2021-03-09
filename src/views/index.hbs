@@ -1,0 +1,44 @@
+<div class="col-md 6 offset-md-3">
+    <div class="card">
+        <div class="card-header">
+            <h1>Tareas</h1>
+        </div>
+        <div class="card-body">
+            {{#if contactos}}
+            <ul class="list-group">
+                {{#each contactos}}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        {{firstname}}
+                        {{lastname}} /
+                        {{email}} /
+                        {{phone}}    
+                    </li>
+                    <a href="/delete-contact/{{@key}}" class="btn btn-danger">Borrar</a>
+                {{/each}}
+            </ul>
+            {{else}}
+                <p>No hay contactos</p>
+            {{/if}}
+        </div>
+        <div class="card-footer">
+            <form action="/new-contact" method="POST">
+                <div class="form-group">
+                    <input type="text" name="firstname" placeholder="Nombres" class="form-control"  autofocus />
+                </div>
+                <div class="form-group">
+                    <input type="text" name="lastname" placeholder="Apellidos" class="form-control"  autofocus />
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Email" class="form-control"  autofocus />
+                </div>
+                <div class="form-group">
+                    <input type="tel" name="phone" placeholder="Celular" class="form-control"  autofocus />
+                </div>
+                <button class="btn btn-primary btn-block">
+                    Agregar
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
